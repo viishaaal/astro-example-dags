@@ -37,7 +37,7 @@ def my_snowflake_dag():
     create_or_replace_table = SQLExecuteQueryOperator(
         task_id="create_or_replace_table",
         conn_id=_SNOWFLAKE_CONN_ID,
-        database="DEMO_DB",
+        database=_SNOWFLAKE_DB,
         sql=f"""
             CREATE OR REPLACE TABLE {_SNOWFLAKE_SCHEMA}.{_SNOWFLAKE_TABLE} (
                 ID INT,
@@ -50,7 +50,7 @@ def my_snowflake_dag():
     insert_data = SQLExecuteQueryOperator(
         task_id="insert_data",
         conn_id=_SNOWFLAKE_CONN_ID,
-        database="DEMO_DB",
+        database=_SNOWFLAKE_DB,
         sql="insert_data.sql",
         params={
             "db_name": _SNOWFLAKE_DB,
