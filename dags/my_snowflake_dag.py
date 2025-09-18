@@ -13,7 +13,7 @@ from airflow.models.baseoperator import chain
 from pendulum import datetime, duration
 import os
 
-_SNOWFLAKE_CONN_ID = "KRISHNA"
+_SNOWFLAKE_CONN_ID = "conn"
 _SNOWFLAKE_DB = "KRISHNA_BRONZE"
 _SNOWFLAKE_SCHEMA = "RAW_STG"
 _SNOWFLAKE_TABLE = "DEMO_TABLE"
@@ -97,4 +97,5 @@ def my_snowflake_dag():
 
 
 my_snowflake_dag()
+
 
